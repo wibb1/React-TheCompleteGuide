@@ -6,6 +6,14 @@ const SimpleInput = (props) => {
   const [nameIsValid, setNameIsValid] = useState(false);
   const [nameTouched, setNameTouched] = useState(false);
 
+  const nameInputBlurHandler = () => {
+    setNameTouched(true)
+
+    if(enteredName.trim() === '') {
+      setNameIsValid(false);
+    } 
+  }
+
   useEffect(() => {
     if (nameIsValid) {
       console.log("Name Input Valid");
@@ -14,6 +22,10 @@ const SimpleInput = (props) => {
 
   const nameInputChangeHandler = (event) => {
     setEnteredName(event.target.value);
+    
+    if(event.target.value.trim() !== '') {
+      setNameIsValid(true);
+    } 
   };
 
   const formSubmissionHandler = (event) => {
@@ -56,6 +68,7 @@ const SimpleInput = (props) => {
           id="name"
           onChange={nameInputChangeHandler}
           value={enteredName}
+          onBlur={nameInputBlurHandler}
         />
         {nameInputIsInvalid && (
           <p className="error-text">Name must not be empty</p>
