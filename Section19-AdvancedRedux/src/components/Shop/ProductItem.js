@@ -5,12 +5,15 @@ import classes from "./ProductItem.module.css";
 import { cartActions } from "../../store/cart-slice";
 
 const ProductItem = (props) => {
+  
   const { title, price, description, id } = props;
+
   const dispatch = useDispatch();
 
   const addToCartHandler = () => {
     dispatch(cartActions.addItem({ id, title, price }));
   };
+
   return (
     <li className={classes.item}>
       <Card>
