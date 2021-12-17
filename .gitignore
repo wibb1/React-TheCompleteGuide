@@ -1,5 +1,6 @@
 # custom
 .DS_Store
+secretKeys.js
 
 # Logs
 logs
@@ -77,3 +78,4 @@ typings/
 
 # FuseBox cache
 .fusebox/
+
