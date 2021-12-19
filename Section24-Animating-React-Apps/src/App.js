@@ -6,27 +6,26 @@ import Backdrop from "./components/Backdrop/Backdrop";
 import List from "./components/List/List";
 
 class App extends Component {
-
   state = {
-    modelIsOpen: false,
-  }
+      modalIsOpen: null,
+  };
 
-  showModel = () => this.setState({modelIsOpen: true});
+  showModal = () => this.setState({ modalIsOpen: true })
 
-  closeModel = () => this.setState({modelIsOpen: false});
-
+  closeModal = () => this.setState({ modalIsOpen: false });
+  
 
   render() {
-    return (
-      <div className="App">
-        <h1>React Animations</h1>
-        <Modal show={this.state.modelIsOpen} closed={this.closeModel}/>
-        <Backdrop />
-        <button className="Button" onClick={this.showModel}>Open Modal</button>
-        <h3>Animating Lists</h3>
-        <List />
-      </div>
-    );
+      return (
+          <div className="App">
+              <h1>React Animations</h1>
+              <Modal closed={this.closeModal} show={this.state.modalIsOpen}/>
+              <Backdrop closed={this.closeModal} show={this.state.modalIsOpen}/>
+              <button className="Button" onClick={this.showModal}>Open Modal</button>
+              <h3>Animating Lists</h3>
+              <List/>
+          </div>
+      );
   }
 }
 

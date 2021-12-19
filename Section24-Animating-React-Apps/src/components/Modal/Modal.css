@@ -10,17 +10,49 @@
   top: 30%;
   left: 25%;
   width: 50%;
-  transition: all 0.3s ease-out;
-  pointer-events: auto;
 }
 
-.ModalOpen {
-  opacity: 1;
-  transform: translateY(0);
+.ModalOpening {
+  animation: openingModal 0.4s ease-out forwards;
 }
 
 .ModalClosed {
   opacity: 0;
-  transform: translateY(-100%);
-  pointer-events: none;
+  transform: translateY(-100%); 
+}
+
+.ModalClosing {
+  animation: closingModal 0.4s ease-out forwards;
+}
+
+@keyframes openingModal {
+  0% {
+      opacity: 0;
+      transform: translateY(-100%);
+  }
+  50% {
+      opacity: 0.5;
+      transform: translateY(30%);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes closingModal {
+  0% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  50% {
+      opacity: 0.5;
+      transform: translateY(30%);
+  }
+
+  100% {
+      opacity: 0;
+      transform: translateY(-100%);
+  }
 }
