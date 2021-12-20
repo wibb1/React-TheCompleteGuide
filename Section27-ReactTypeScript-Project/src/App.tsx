@@ -1,11 +1,11 @@
 import './App.css';
-import ToDos from './components/ToDos';
+import Todos from './components/Todos';
 
 const items = ['1','2','3','4']
 function App() {
   return (
     <div>
-      <ToDos items={items}/>
+      <Todos items={items}/>
     </div>
   );
 }
